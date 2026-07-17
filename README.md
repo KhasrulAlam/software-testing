@@ -1,4 +1,4 @@
-# Software Testing Project — Group 20
+# Software Testing Project
 
 Software Testing, Summer 2026, TUHH (Sibylle Schupp / Daniel Rashedi).
 
