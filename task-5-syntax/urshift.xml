@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.6//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_6.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+const int OFFSET = 16;
+int val, n, result;</declaration>
+	<template>
+		<name x="5" y="5">Automaton</name>
+		<declaration>// Place local declarations here.
+</declaration>
+		<location id="id0" x="-170" y="8">
+			<name x="-187" y="16">Positive</name>
+		</location>
+		<location id="id1" x="8" y="-263">
+			<name x="-9" y="-297">Init</name>
+		</location>
+		<location id="id2" x="408" y="-59">
+			<name x="398" y="-93">Negative</name>
+		</location>
+		<init ref="id1"/>
+		<transition id="id3">
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="select" x="26" y="-89">v : int[-8,7], k : int[0,3]</label>
+			<label kind="guard" x="26" y="-72">v &lt; 0</label>
+			<label kind="assignment" x="25" y="-59">val = v, n = k, result = (v + OFFSET) &gt;&gt; k</label>
+			<nail x="212" y="34"/>
+		</transition>
+		<transition id="id4">
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<nail x="331" y="-263"/>
+		</transition>
+		<transition id="id5">
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="select" x="-255" y="-178">v : int[-8,7], k : int[0,3]</label>
+			<label kind="guard" x="-255" y="-161">v &gt;= 0</label>
+			<label kind="assignment" x="-255" y="-144">val = v, n = k, result = v &gt;&gt; k</label>
+			<nail x="17" y="-110"/>
+		</transition>
+		<transition id="id6">
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<nail x="-136" y="-229"/>
+		</transition>
+	</template>
+	<system>Proc = Automaton();
+system Proc;</system>
+	<queries>
+		<query>
+			<formula>A[] not deadlock</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-07-01 12:53:07 +0200">
+			</result>
+		</query>
+		<query>
+			<formula>E&lt;&gt; Proc.Negative</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-07-01 12:53:04 +0200">
+			</result>
+		</query>
+	</queries>
+</nta>

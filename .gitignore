@@ -1,0 +1,9 @@
+youtube-dl/
+youtube-dl/coverage.json
+youtube-dl/.coverage
+youtube-dl/htmlcov/
+/test_*
+*.lnk__pycache__/
+*.pyc
+.hypothesis/
+desktop.ini
